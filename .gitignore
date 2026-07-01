@@ -1,0 +1,12 @@
+.DS_Store
+*.swp
+*~
+
+# Task-файли залишаються в _tasks/, не в корені
+/task_*.md
+/TASK_*.md
+
+# Курси — окремі git-репо; локально через setup.sh
+courses/
+
+.idea/

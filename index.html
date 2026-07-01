@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CLI Course Hub — Усі тренажери</title>
+  <style>
+    :root {
+      --bg: #0f1419;
+      --panel: #1a2332;
+      --border: #2d3a4d;
+      --text: #e8edf4;
+      --muted: #8b9cb3;
+      --accent: #58a6ff;
+      --green: #3fb950;
+      --font: "SF Mono", Menlo, Consolas, monospace;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh;
+      background: radial-gradient(1200px 600px at 50% -20%, #1e3a5f 0%, var(--bg) 50%);
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, sans-serif;
+    }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 32px 20px 48px; }
+    header { text-align: center; margin-bottom: 36px; }
+    header h1 {
+      font-size: 1.75rem; font-weight: 700; margin: 0 0 10px;
+      letter-spacing: -0.02em;
+    }
+    header p {
+      margin: 0 auto; max-width: 560px;
+      color: var(--muted); font-size: 0.95rem; line-height: 1.55;
+    }
+    .meta {
+      margin-top: 16px; font-size: 0.82rem; color: var(--muted);
+      font-family: var(--font);
+    }
+    .meta span { color: var(--accent); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 20px;
+      display: flex; flex-direction: column;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+    .card:hover {
+      border-color: #3d5270;
+      transform: translateY(-2px);
+    }
+    .card-head { margin-bottom: 10px; }
+    .card-head h2 {
+      font-size: 1.05rem; font-weight: 600; margin: 0 0 8px; line-height: 1.35;
+    }
+    .badges { display: flex; flex-wrap: wrap; gap: 6px; }
+    .badge {
+      font-size: 0.68rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.04em; padding: 3px 8px; border-radius: 6px;
+      font-family: var(--font);
+    }
+    .badge-shell {
+      background: rgba(88, 166, 255, 0.15);
+      color: var(--accent);
+      border: 1px solid rgba(88, 166, 255, 0.3);
+    }
+    .badge-new {
+      background: rgba(63, 185, 80, 0.15);
+      color: var(--green);
+      border: 1px solid rgba(63, 185, 80, 0.35);
+    }
+    .badge-muted {
+      background: rgba(139, 156, 179, 0.12);
+      color: var(--muted);
+      border: 1px solid var(--border);
+    }
+    .card-desc {
+      flex: 1; margin: 0 0 14px;
+      font-size: 0.86rem; color: var(--muted); line-height: 1.5;
+    }
+    .card-actions {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 7px 12px; border-radius: 8px;
+      font-size: 0.8rem; font-weight: 500;
+      text-decoration: none; border: 1px solid var(--border);
+      background: #243044; color: var(--text);
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .btn:hover { background: #2d3d54; border-color: #4a6280; }
+    .btn-primary {
+      background: rgba(88, 166, 255, 0.18);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .btn-primary:hover { background: rgba(88, 166, 255, 0.28); }
+    .card-pages {
+      font-size: 0.75rem; color: var(--muted);
+      text-decoration: none; font-family: var(--font);
+    }
+    .card-pages:hover { color: var(--accent); }
+    .error {
+      text-align: center; padding: 24px;
+      background: rgba(248, 81, 73, 0.1);
+      border: 1px solid rgba(248, 81, 73, 0.35);
+      border-radius: 12px; color: #f85149;
+      font-size: 0.9rem; line-height: 1.5;
+    }
+    footer {
+      margin-top: 40px; text-align: center;
+      font-size: 0.78rem; color: var(--muted);
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>CLI Course Hub</h1>
+      <p>
+        Один портал для всіх інтерактивних тренажерів команд:
+        Terminal, Git, MikroTik, AI CLI. Обери курс — відкрий тренажер, уроки або шпаргалку.
+      </p>
+      <p class="meta"><span id="courseCount">…</span> · дані з <code>courses.json</code></p>
+    </header>
+
+    <div id="loadError" class="error" hidden></div>
+    <div class="grid" id="courseGrid">
+      <p style="color:var(--muted);grid-column:1/-1;text-align:center">Завантаження каталогу…</p>
+    </div>
+
+    <footer>
+      <p>CLI Course Hub · <a href="https://github.com/StsZu">StsZu</a> · <span id="year"></span></p>
+      <p style="margin-top:6px"><a href="README.md">README</a> · <a href="SKILL.md">SKILL (для агента)</a></p>
+    </footer>
+  </div>
+  <script src="portal.js"></script>
+</body>
+</html>
