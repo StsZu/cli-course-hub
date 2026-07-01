@@ -1,0 +1,103 @@
+{
+  "hub": "cli-course-hub",
+  "github_user": "StsZu",
+  "courses": [
+    {
+      "id": "git",
+      "name": "Git / Git Bash",
+      "description": "Git, GitHub, командний рядок Git Bash — з quiz для Moodle.",
+      "path": "courses/git",
+      "repo": "git-course-emulator",
+      "pages_url": "https://stszu.github.io/git-course-emulator/",
+      "shell": "git-bash",
+      "format": "single-html",
+      "has_quiz": true,
+      "pages": { "quiz": true }
+    },
+    {
+      "id": "mac-terminal",
+      "name": "macOS Terminal (zsh)",
+      "description": "zsh, файли, мережа, SSH, Git, Homebrew, AI CLI на Mac.",
+      "path": "courses/mac-terminal",
+      "repo": "mac-terminal-course",
+      "pages_url": "https://stszu.github.io/mac-terminal-course/",
+      "shell": "zsh",
+      "format": "trainer-js",
+      "has_quiz": false,
+      "pages": { "course": true, "cheatsheet": true }
+    },
+    {
+      "id": "windows-terminal",
+      "name": "Windows CLI (PowerShell / CMD / WSL)",
+      "description": "PowerShell, CMD, WSL — Windows-аналог Mac Terminal курсу.",
+      "path": "courses/windows-terminal",
+      "repo": "windows-cli-course",
+      "pages_url": "https://stszu.github.io/windows-cli-course/",
+      "shell": "powershell",
+      "format": "trainer-js",
+      "has_quiz": false,
+      "pages": { "course": true, "cheatsheet": true }
+    },
+    {
+      "id": "raspberry-pi",
+      "name": "Raspberry Pi 5 Terminal",
+      "description": "SSH, bash, apt, GPIO, systemd — практика на Raspberry Pi.",
+      "path": "courses/raspberry-pi",
+      "repo": "raspberry-pi-terminal-course",
+      "pages_url": "https://stszu.github.io/raspberry-pi-terminal-course/",
+      "shell": "bash",
+      "format": "trainer-js",
+      "has_quiz": false,
+      "pages": { "course": true, "cheatsheet": true }
+    },
+    {
+      "id": "mikrotik",
+      "name": "MikroTik RouterOS CLI",
+      "description": "RouterOS CLI, safe-mode, export, backup — з quiz.",
+      "path": "courses/mikrotik",
+      "repo": "mikrotik-course-CLI-tutorial",
+      "pages_url": "https://stszu.github.io/mikrotik-course-CLI-tutorial/",
+      "shell": "routeros",
+      "format": "build-script",
+      "has_quiz": true,
+      "pages": { "quiz": true }
+    },
+    {
+      "id": "claude-code",
+      "name": "Claude Code Slash Commands",
+      "description": "Slash-команди Claude Code: /plan, /diff, /permissions, агенти.",
+      "path": "courses/claude-code",
+      "repo": "claude-cli-tutorial-command",
+      "pages_url": "https://stszu.github.io/claude-cli-tutorial-command/",
+      "shell": "claude-code",
+      "format": "build-script",
+      "has_quiz": false,
+      "pages": {}
+    },
+    {
+      "id": "codex-cli",
+      "name": "Codex CLI",
+      "description": "OpenAI Codex CLI: slash-команди, resume, сесії.",
+      "path": "courses/codex-cli",
+      "repo": "codex-cli-tutorial-5-emulator",
+      "pages_url": "https://stszu.github.io/codex-cli-tutorial-5-emulator/",
+      "shell": "codex",
+      "format": "single-html",
+      "has_quiz": false,
+      "pages": {}
+    },
+    {
+      "id": "grok-cli",
+      "name": "Grok CLI",
+      "description": "xAI Grok TUI: /plan, /context, /skills, always-approve.",
+      "path": "courses/grok-cli",
+      "repo": "grok-cli-course",
+      "pages_url": "https://stszu.github.io/grok-cli-course/",
+      "shell": "grok",
+      "format": "trainer-js",
+      "has_quiz": false,
+      "status": "active",
+      "pages": { "course": true, "cheatsheet": true }
+    }
+  ]
+}
