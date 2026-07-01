@@ -98,6 +98,19 @@
       "has_quiz": false,
       "status": "active",
       "pages": { "course": true, "cheatsheet": true }
+    },
+    {
+      "id": "gemini-cli",
+      "name": "Gemini CLI",
+      "description": "Google Gemini CLI: /plan, /memory, /mcp, @file, !shell.",
+      "path": "courses/gemini-cli",
+      "repo": "gemini-cli-course",
+      "pages_url": "https://stszu.github.io/gemini-cli-course/",
+      "shell": "gemini",
+      "format": "trainer-js",
+      "has_quiz": false,
+      "status": "active",
+      "pages": { "course": true, "cheatsheet": true }
     }
   ]
 }

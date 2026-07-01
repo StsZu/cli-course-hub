@@ -6,7 +6,8 @@ const SHELL_LABELS = {
   routeros: "RouterOS",
   "claude-code": "Claude Code",
   codex: "Codex CLI",
-  grok: "Grok CLI"
+  grok: "Grok CLI",
+  gemini: "Gemini CLI"
 };
 
 function esc(s) {
@@ -68,7 +69,7 @@ function renderCard(course) {
     ? ""
     : `<span class="badge badge-muted">${esc(course.status)}</span>`;
 
-  const newBadge = course.id === "grok-cli" ? `<span class="badge badge-new">новий</span>` : "";
+  const newBadge = course.id === "gemini-cli" ? `<span class="badge badge-new">новий</span>` : "";
 
   return `
     <article class="card" data-id="${esc(course.id)}">
