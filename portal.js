@@ -1,3 +1,5 @@
+const PORTAL_VERSION = "2026-07-01-gemini";
+
 const SHELL_LABELS = {
   "git-bash": "Git Bash",
   zsh: "zsh",
@@ -93,7 +95,7 @@ async function initPortal() {
   const errEl = document.getElementById("loadError");
 
   try {
-    const res = await fetch("courses.json");
+    const res = await fetch(`courses.json?v=${PORTAL_VERSION}`, { cache: "no-store" });
     if (!res.ok) throw new Error(`courses.json — ${res.status}`);
     const data = await res.json();
     const courses = data.courses || [];
